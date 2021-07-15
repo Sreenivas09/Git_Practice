@@ -1,52 +1,6 @@
-<profile>
-    <!-- Only run Unit Tests with Coverage -->
-    <id>Unit-Tests</id>
-    <activation>
-        <activeByDefault>true</activeByDefault>
-    </activation>
-    <build>
-        <plugins>
-            <plugin>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <configuration>
-                    <source>${maven.compiler.source}</source>
-                    <target>${maven.compiler.target}</target>
-                    <argLine>${argLine}</argLine>
-                    <excludes>
-                        <exclude>**/*IT.java</exclude>
-                    </excludes>
-                </configuration>
-                <dependencies>
-                    <dependency>
-                        <groupId>org.apache.maven.surefire</groupId>
-                        <artifactId>surefire-junit47</artifactId>
-                        <version>${version.surefire-junit47}</version>
-                    </dependency>
-                </dependencies>
-            </plugin>
-            <plugin>
-                <groupId>org.jacoco</groupId>
-                <artifactId>jacoco-maven-plugin</artifactId>
-                <configuration>
-                    <dataFile>${sonar.jacoco.reportPath}</dataFile>
-                    <destFile>${sonar.jacoco.reportPath}</destFile>
-                </configuration>
-                <executions>
-                    <execution>
-                        <phase>generate-test-resources</phase>
-                        <goals>
-                            <goal>prepare-agent</goal>
-                        </goals>
-                    </execution>
-                    <execution>
-                        <id>report</id>
-                        <phase>prepare-package</phase>
-                        <goals>
-                            <goal>report</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-        </plugins>
-    </build>
-</profile>
+<!-- https://mvnrepository.com/artifact/org.apache.maven.shared/file-management -->
+<dependency>
+    <groupId>org.apache.maven.shared</groupId>
+    <artifactId>file-management</artifactId>
+    <version>1.0</version>
+</dependency>
